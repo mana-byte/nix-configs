@@ -3,15 +3,11 @@
   self,
   ...
 }: {
-  flake.nixosConfigurations.mana = inputs.nixpkgs.lib.nixosSystem {
-    modules = [
-      self.nixosModules.manaModule
-    ];
-  };
 
-  flake.nixosModules.manaModule = {
+  flake.nixosModules.configuration = {
     config,
     pkgs,
+    lib,
     ...
   }: {
     nix.settings.experimental-features = ["nix-command" "flakes"];

@@ -225,7 +225,7 @@
                 number = true;
                 signcolumn = "yes";
                 termguicolors = true; # True color
-                updatetime = 300; # Faster CursorHold
+                updatetime = 400; # Faster CursorHold
                 scrolloff = 1; # Context lines around cursor
                 splitbelow = true; # New horizontal splits below
                 splitright = true; # New vertical splits to the right

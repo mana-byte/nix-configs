@@ -29,11 +29,6 @@
     import-tree,
     ...
   }:
-    flake-parts.lib.mkFlake {inherit inputs;} {
-      imports = [
-        # inputs.flake-parts.flakeModules.modules
-        inputs.home-manager.flakeModules.home-manager
-        (import-tree ./modules)
-      ];
-    };
+    flake-parts.lib.mkFlake {inherit inputs;}
+    (inputs.import-tree ./modules);
 }

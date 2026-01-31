@@ -3,6 +3,17 @@
   withSystem,
   ...
 }: {
+  flake.homeConfigurations.mana = withSystem "x86_64-linux" (
+    {pkgs, ...}:
+      inputs.home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [
+          {
+            # user home config
+          }
+        ];
+      }
+  );
 
   flake.modules.home-manager.home = {
     config,

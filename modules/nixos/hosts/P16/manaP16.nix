@@ -8,7 +8,7 @@
       # P16 specific
       configurationP16
       hardwareP16
-      nvidiaP16
+      # nvidiaP16
 
       # Modules
       asusd

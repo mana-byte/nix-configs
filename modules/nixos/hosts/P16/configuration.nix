@@ -33,11 +33,6 @@
       NIXOS_OZONE_WL = "1";
     };
 
-    nix.gc = {
-      automatic = true;
-      dates = "monthly"; # runs on the 1st of every month by default
-      options = "--delete-older-than 30d";
-    };
     nix.settings.experimental-features = ["nix-command" "flakes"];
 
     ### BOOT and Sytem

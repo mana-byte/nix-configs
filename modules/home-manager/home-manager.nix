@@ -4,9 +4,6 @@
     pkgs,
     ...
   }: {
-    # home.username = "mana";
-    # home.homeDirectory = "/home/mana";
-
     home.stateVersion = "24.05"; # Please read the comment before changing.
 
     # SESSION VARIABLES

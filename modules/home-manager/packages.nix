@@ -1,45 +1,10 @@
-{...}: {
+{inputs, ...}: {
   flake.homeModules.packages = {
     config,
     pkgs,
-    self,
     ...
   }: {
-    config.allowUnfree = true;
-
-    programs.git = {
-      enable = true;
-      settings = {
-        user = {
-          name = "mana-byte";
-          email = "manaikilaut@gmail.com";
-        };
-        init.defaultBranch = "main";
-        pull.rebase = false;
-        credential.helper = "store";
-        color.ui = "auto";
-      };
-    };
-
-    #GTK
-    gtk = {
-      enable = true;
-      theme = {
-        name = "catppuccin-frappe-blue-standard";
-        package = pkgs.catppuccin-gtk;
-        # package = pkgs.nwg-look;
-      };
-      iconTheme = {
-        name = "Papirus-Dark";
-        package = pkgs.catppuccin-papirus-folders;
-      };
-      cursorTheme = {
-        name = "Bibata-Modern-Classic";
-        package = pkgs.bibata-cursors;
-        size = 24;
-      };
-      font.name = "DepartureMono Nerd Font";
-    };
+    nixpkgs.config.allowUnfree = true;
 
     home.packages = with pkgs; [
       # system info : battery health, cpu temp, memory usage, disk usage, etc.
@@ -62,7 +27,6 @@
 
       # work basics
       neovim
-      git
       gh
       kitty
       tmux
@@ -140,7 +104,6 @@
 
       #TODO: remove test package
       cowsay
-
     ];
   };
 }

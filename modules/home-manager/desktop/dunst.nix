@@ -1,5 +1,5 @@
 {inputs, ...}: {
-  flake.homeModules.dunstModule = {
+  flake.homeModules.dunst = {
     config,
     pkgs,
     ...

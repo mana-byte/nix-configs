@@ -1,5 +1,5 @@
 {inputs, ...}: {
-  flake.homeModules.waybarModule = {
+  flake.homeModules.waybar = {
     config,
     pkgs,
     ...
@@ -370,7 +370,7 @@
       '';
     };
     home.file.".config/waybar/scripts/restart.sh" = {
-      source = ../../dotfiles/waybar/scripts/restart.sh;
+      source = ../dotfiles/waybar/scripts/restart.sh;
       executable = true;
     };
   };

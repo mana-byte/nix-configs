@@ -1,5 +1,5 @@
 {inputs, ...}: {
-  flake.homeModules.starshipModule = {
+  flake.homeModules.starship = {
     config,
     pkgs,
     ...

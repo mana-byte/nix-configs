@@ -4,7 +4,7 @@
   ...
 }: {
 
-  flake.modules.nixos.configurationP16 = {
+  flake.nixosModules.configuration = {
     config,
     pkgs,
     lib,

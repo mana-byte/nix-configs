@@ -1,16 +1,11 @@
-{
-  inputs,
-  withSystem,
-  ...
-}: {
-
-  flake.modules.home-manager.home = {
+{inputs, ...}: {
+  flake.homeModules.home-manager = {
     config,
     pkgs,
     ...
   }: {
-    home.username = "mana";
-    home.homeDirectory = "/home/mana";
+    # home.username = "mana";
+    # home.homeDirectory = "/home/mana";
 
     home.stateVersion = "24.05"; # Please read the comment before changing.
 

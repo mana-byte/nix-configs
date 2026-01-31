@@ -38,7 +38,6 @@
       networkmanagerapplet
 
       # notifications
-      dunst
       libnotify
 
       # nix packages

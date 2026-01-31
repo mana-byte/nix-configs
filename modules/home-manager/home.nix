@@ -16,6 +16,7 @@
       hyprland
       gtk
       dunst
+      mpd
 
       #Shell specific
       bashrc

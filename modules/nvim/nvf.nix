@@ -6,7 +6,7 @@
   }: {
     #app
     apps.nvf = {
-      program = self'.packages.${pkgs.system}.nvf;
+      program = self'.packages.nvf;
       meta = {
         description = "Nvim configured with the nvf configuration";
       };

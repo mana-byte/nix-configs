@@ -4,12 +4,12 @@
     pkgs,
     ...
   }: {
-    home.file.".config/dunst/scripts/brightness.sh" = {
-      source = ../../dotfiles/dunst/brightness.sh;
+    home.file."~/.config/dunst/scripts/brightness.sh" = {
+      source = ../dotfiles/dunst/brightness.sh;
       executable = true;
     };
-    home.file.".config/dunst/scripts/volume.sh" = {
-      source = ../../dotfiles/dunst/volume.sh;
+    home.file."~/.config/dunst/scripts/volume.sh" = {
+      source = ../dotfiles/dunst/volume.sh;
       executable = true;
     };
     services.dunst = {

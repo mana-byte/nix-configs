@@ -3,10 +3,10 @@
   self,
   ...
 }: {
-  flake.nixosConfigurations.manaP16 = inputs.nixpkgs.lib.nixosSystem {
+  flake.nixos.manaP16 = inputs.nixpkgs.lib.nixosSystem {
     modules = [
-      self.nixosModules.configuration
-      self.nixosModules.hardware
+      self.modules.nixos.configurationP16
+      self.modules.nixos.hardwareP16
     ];
   };
 }

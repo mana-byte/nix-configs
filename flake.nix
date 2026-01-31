@@ -2,9 +2,11 @@
   description = "Implementation of dendritic pattern for config";
 
   inputs = {
-    # dendritic pattern base
+    #Nixpkgs versions
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+
+    # dendritic pattern base
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
 

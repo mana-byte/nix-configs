@@ -1,24 +1,31 @@
 {
   inputs,
   self,
+  withSystem,
   ...
 }: {
-  flake.homeConfigurations.mana = inputs.home-manager.lib.homeManagerConfiguration {
-    modules = [
-      self.flake.homeModules.homeModule
-      self.flake.homeModules.packages
+  flake.homeConfigurations.mana = withSystem "x86_64-linux" ({
+    pkgs,
+    self,
+    ...
+  }:
+    inputs.home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      modules = [
+        self.flake.homeModules.homeModule
+        self.flake.homeModules.packages
 
-      # NOTE: CUSTOMISATION MODULES
-      # WARNING: source folder
-      self.flake.homeModules.hyprlandModule
-      self.flake.homeModules.starfishModule
-      self.flake.homeModules.kittyModule
-      # WARNING: source folder
-      self.flake.homeModules.waybarModule
-      # WARNING: source folder
-      self.flake.homeModules.dunstModule
-    ];
-  };
+        # NOTE: CUSTOMISATION MODULES
+        # WARNING: source folder
+        self.flake.homeModules.hyprlandModule
+        self.flake.homeModules.starfishModule
+        self.flake.homeModules.kittyModule
+        # WARNING: source folder
+        self.flake.homeModules.waybarModule
+        # WARNING: source folder
+        self.flake.homeModules.dunstModule
+      ];
+    });
 
   flake.homeModules.homeModule = {
     config,
@@ -33,7 +40,7 @@
     # SESSION VARIABLES
     home.sessionVariables = {
       EDITOR = "nvim";
-      MPD_HOST = "localhost:6600";
+      # MPD_HOST = "localhost:6600";
     };
 
     #BASHRC AND ALIASES

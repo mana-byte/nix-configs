@@ -1,6 +1,18 @@
 {inputs, ...}: {
-  systems = [ "x86_64-linux" "aarch64-darwin" "x86_64-darwin" ];
-  perSystem = {pkgs, ...}: {
+  perSystem = {
+    pkgs,
+    self',
+    ...
+  }: {
+    #app
+    apps.nvf = {
+      program = self'.packages.${pkgs.system}.nvf;
+      meta = {
+        description = "Nvim configured with the nvf configuration";
+      };
+    };
+
+    # package
     packages.nvf =
       (inputs.nvf.lib.neovimConfiguration {
         inherit pkgs;

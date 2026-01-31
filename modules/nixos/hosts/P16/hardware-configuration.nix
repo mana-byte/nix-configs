@@ -3,7 +3,7 @@
   self,
   ...
 }: {
-  flake.nixosModules.hardware = {
+  flake.nixosModules.hardwareP16 = {
     config,
     lib,
     pkgs,

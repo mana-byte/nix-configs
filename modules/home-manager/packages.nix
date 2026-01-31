@@ -2,6 +2,7 @@
   flake.homeModules.packages = {
     config,
     pkgs,
+    self,
     ...
   }: {
     config.allowUnfree = true;
@@ -139,6 +140,7 @@
 
       #TODO: remove test package
       cowsay
+
     ];
   };
 }

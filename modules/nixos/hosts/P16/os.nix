@@ -22,6 +22,7 @@
       languageFr
       tlp
       usbAutoMount
+      gc30d
 
       # user
       mana

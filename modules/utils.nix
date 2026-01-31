@@ -9,6 +9,7 @@
     modules,
     stable ? false,
     nix-index-database ? false,
+    homeStateVersion ? "24.05", # read before before changing
     ...
   }:
     withSystem "${system}" (
@@ -30,6 +31,14 @@
               {
                 home.username = hostName;
                 home.homeDirectory = "/home/${hostName}";
+                home.stateVersion = homeStateVersion;
+                home.sessionVariables = {
+                  EDITOR = "nvim";
+                };
+
+                # Let home manager manage itself
+                programs.home-manager.enable = true;
+                home.enableNixpkgsReleaseCheck = true;
               }
               nix-index-databaseModule
             ];

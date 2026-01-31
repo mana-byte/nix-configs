@@ -101,9 +101,6 @@
 
       # coding cli
       mistral-vibe
-
-      #TODO: remove test package
-      cowsay
     ];
   };
 }

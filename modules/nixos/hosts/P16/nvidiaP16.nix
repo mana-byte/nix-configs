@@ -23,5 +23,8 @@
       powerManagement.enable = true;
       powerManagement.finegrained = true;
     };
+    environment.systemPackages = with pkgs; [
+      nvtopPackages.nvidia
+    ];
   };
 }

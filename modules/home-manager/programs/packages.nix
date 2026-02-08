@@ -40,9 +40,12 @@
       # notifications
       libnotify
 
-      # nix packages
+      # Formatters and linters and lsps 
       alejandra
       nil
+      black
+      biome
+
       # NIx prefetch scripts
       nix-prefetch-scripts
       # nixpkgs review

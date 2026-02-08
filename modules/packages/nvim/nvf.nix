@@ -205,6 +205,14 @@
                   silent = true;
                   desc = "Open Git interface";
                 }
+                # Additional keymaps can be added here following the same structure
+                {
+                  key = "<leader>ss";
+                  mode = ["v"];
+                  action = ":'<,'>sort<CR>";
+                  silent = true;
+                  desc = "Sort selection";
+                }
               ];
 
               git.enable = true;
@@ -283,16 +291,15 @@
                 motion.leap = {
                   enable = true;
                   mappings = {
-                    leapForwardTo = "s";
-                    leapBackwardTo = "S";
-                    leapFromWindow = "<leader>s";
+                    leapForwardTo = "<leader>s";
+                    leapBackwardTo = "<leader>S";
                   };
                 };
-                surround.enable = true;
                 ccc = {
                   enable = true;
                   mappings.quit = "q";
                 };
+                surround.enable = true;
               };
               terminal.toggleterm.enable = true;
 

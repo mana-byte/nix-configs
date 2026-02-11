@@ -232,8 +232,8 @@
                   softtabstop = 2;
                   expandtab = true;
                   cursorline = true;
-                  relativenumber = true;
                   number = true;
+                  relativenumber = true;
                   signcolumn = "yes";
                   termguicolors = true; # True color
                   updatetime = 400; # Faster CursorHold

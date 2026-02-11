@@ -10,8 +10,11 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
 
-    # Nvim
-    nvf.url = "github:notashelf/nvf";
+    # nvf
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
 
     # home manager
     home-manager = {

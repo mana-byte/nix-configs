@@ -103,6 +103,14 @@
 
       # coding cli
       mistral-vibe
+      
+      python3
+
+      # nvf dependencies
+      nodejs
+      gcc
+      ripgrep
+      
     ];
   };
 }

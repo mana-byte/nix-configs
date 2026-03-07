@@ -53,7 +53,7 @@
 
       # customisation
       starship
-      neofetch
+      fastfetch
       sassc
       gtk-engine-murrine
       gnome-themes-extra
@@ -104,7 +104,9 @@
       # coding cli
       mistral-vibe
       
+      # python dev
       python3
+      uv
 
       # nvf dependencies
       nodejs

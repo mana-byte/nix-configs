@@ -9,6 +9,7 @@
         alias sudo="sudo "
         alias CD="cd ~/Desktop"
         alias OSRC="cd ~/Desktop/OPEN_SOURCE"
+        alias neofetch="fastfetch"
       '';
     };
   };

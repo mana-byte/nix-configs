@@ -4,6 +4,9 @@
     pkgs,
     ...
   }: {
+    home.packages = with pkgs; [
+      libnotify
+    ];
     home.file.".config/dunst/scripts/brightness.sh" = {
       source = ../dotfiles/dunst/brightness.sh;
       executable = true;

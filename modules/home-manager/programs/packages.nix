@@ -37,9 +37,6 @@
       rofi
       networkmanagerapplet
 
-      # notifications
-      libnotify
-
       # Formatters and linters and lsps 
       alejandra
       nil
@@ -85,15 +82,6 @@
       # calcure # taskwarrior crashes
       s-tui
       htop
-
-      # hyprland plugins
-      hyprpolkitagent
-      hyprshot
-      hyprlock
-      hypridle
-      hyprcursor
-      hyprsunset
-      waybar
 
       # bluetooth interface
       adw-bluetooth

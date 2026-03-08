@@ -8,6 +8,14 @@
     pkgs,
     ...
   }: {
+    home.packages = with pkgs; [
+      hyprpolkitagent
+      hyprshot
+      hyprlock
+      hypridle
+      hyprcursor
+      hyprsunset
+    ];
     xdg.configFile."hypr".source = ../dotfiles/hypr;
     wayland.windowManager.hyprland.enable = true;
     wayland.windowManager.hyprland.settings = {

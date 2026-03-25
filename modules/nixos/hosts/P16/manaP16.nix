@@ -11,7 +11,7 @@
       nvidiaP16
 
       # Modules
-      cuda
+      # cuda
       asusd
       audio
       basicPackages

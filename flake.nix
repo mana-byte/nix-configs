@@ -25,7 +25,7 @@
 
     # nvf
     nvf = {
-      url = "github:notashelf/nvf";
+      url = "github:NotAShelf/nvf?ref=refs/tags/v0.8";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 

@@ -100,7 +100,12 @@
       nodejs
       gcc
       ripgrep
-      
+
+      # dev
+      dotenv-cli
+
+      # windows vm
+      winboat
     ];
   };
 }

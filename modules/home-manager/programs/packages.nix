@@ -20,8 +20,6 @@
         # rasp pi
         rpi-imager
 
-        kitty
-
         # apps
         rofi
         networkmanagerapplet

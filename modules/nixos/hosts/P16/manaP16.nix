@@ -26,6 +26,8 @@
       usbAutoMount
       gc30d
 
+      gaming
+
       # user
       mana
     ];

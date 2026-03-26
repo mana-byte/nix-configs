@@ -11,6 +11,7 @@
       # terminal
       kitty
       starship
+      fastfetch
 
       #Desktop
       waybar

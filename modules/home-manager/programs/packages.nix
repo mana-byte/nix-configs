@@ -25,8 +25,6 @@
         networkmanagerapplet
 
         # customisation
-        starship
-        fastfetch
         sassc
         gtk-engine-murrine
         gnome-themes-extra

@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
 swww-daemon &
-wal -i ~/.config/me/background/animated/street.jpg &
-swww img  ~/.config/me/background/animated/street.gif &
 nm-applet --indicator &
 waybar &
 dunst &
@@ -13,3 +11,6 @@ hyprsunset &
 kdeconnectd &
 kdeconnect-indicator &
 blueman-applet &
+wal -i ~/.config/me/background/animated/street.jpg &
+swww clear-cache &
+swww img  ~/.config/me/background/animated/street.gif &

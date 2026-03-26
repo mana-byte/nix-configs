@@ -24,6 +24,7 @@
       tlp
       usbAutoMount
       gc30d
+      vm
 
       # user
       mana

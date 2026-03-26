@@ -103,9 +103,6 @@
 
       # dev
       dotenv-cli
-
-      # windows vm
-      winboat
     ];
   };
 }

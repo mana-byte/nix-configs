@@ -1,108 +1,70 @@
-{inputs, ...}: {
-  flake.homeModules.packages = {
-    config,
-    pkgs,
-    ...
-  }: {
-    nixpkgs.config.allowUnfree = true;
+{ inputs, ... }:
+{
+  flake.homeModules.desktopPackages =
+    {
+      config,
+      pkgs,
+      ...
+    }:
+    {
+      nixpkgs.config.allowUnfree = true;
 
-    home.packages = with pkgs; [
-      # system info : battery health, cpu temp, memory usage, disk usage, etc.
-      inxi
-      tldr
+      home.packages = with pkgs; [
 
-      #run software without installation requires nix index db in flake input
-      comma
+        # Matrix client
+        element-desktop
 
-      # Matrix client
-      element-desktop
+        # display management
+        wdisplays
 
-      killall # kill all processes of a specific name
+        # rasp pi
+        rpi-imager
 
-      # display management
-      wdisplays
+        kitty
 
-      # rasp pi
-      rpi-imager
+        # apps
+        rofi
+        networkmanagerapplet
 
-      # work basics
-      neovim
-      gh
-      kitty
-      tmux
-      nautilus
-      clipman
+        # customisation
+        starship
+        fastfetch
+        sassc
+        gtk-engine-murrine
+        gnome-themes-extra
+        rose-pine-hyprcursor
+        swww
+        pywal
+        nwg-look
 
-      # apps
-      rofi
-      networkmanagerapplet
+        # rofi applets dependencies: https://github.com/adi1090x/rofi?tab=readme-ov-file
+        mpc
 
-      # Formatters and linters and lsps 
-      alejandra
-      nil
-      black
-      biome
+        # desktop software
+        gimp
+        nautilus
+        discord
+        imv
+        # video playyer : also dependency for youtube tui
+        mpv
 
-      # NIx prefetch scripts
-      nix-prefetch-scripts
-      # nixpkgs review
-      nixpkgs-review
+        pavucontrol
 
-      # customisation
-      starship
-      fastfetch
-      sassc
-      gtk-engine-murrine
-      gnome-themes-extra
-      rose-pine-hyprcursor
-      swww
-      pywal
-      nwg-look
+        brave # web browser
+        acpi # for battery status in hyprland bar
+        cheese # for webcam
 
-      # rofi applets dependencies: https://github.com/adi1090x/rofi?tab=readme-ov-file
-      mpc
+        obs-studio # screen recording and streaming
 
-      # desktop software
-      gimp
-      discord
-      imv
-      # video playyer : also dependency for youtube tui
-      mpv
+        # calcure # taskwarrior crashes
+        s-tui
+        htop
 
-      pavucontrol
+        # bluetooth interface
+        adw-bluetooth
 
-      brave # web browser
-      acpi # for battery status in hyprland bar
-      cheese # for webcam
-
-      obs-studio # screen recording and streaming
-
-      # Useful TUI apps
-      lazydocker
-      # calcure # taskwarrior crashes
-      s-tui
-      htop
-
-      # bluetooth interface
-      adw-bluetooth
-
-      # libreoffice
-      libreoffice-fresh
-
-      # coding cli
-      mistral-vibe
-      
-      # python dev
-      python3
-      uv
-
-      # nvf dependencies
-      nodejs
-      gcc
-      ripgrep
-
-      # dev
-      dotenv-cli
-    ];
-  };
+        # libreoffice
+        libreoffice-fresh
+      ];
+    };
 }

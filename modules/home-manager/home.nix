@@ -17,6 +17,7 @@
       gtk
       dunst
       mpd
+      meAssets
 
       #Shell specific
       bashrc

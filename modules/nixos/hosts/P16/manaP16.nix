@@ -12,6 +12,7 @@
 
       # Modules
       # cuda
+      # vm
       asusd
       audio
       basicPackages
@@ -24,7 +25,6 @@
       tlp
       usbAutoMount
       gc30d
-      vm
 
       # user
       mana

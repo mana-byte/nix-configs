@@ -15,6 +15,7 @@
             source = "~/.config/me/fastfetch/knight.txt";
           };
           modules = [
+            "os"
             "host"
             "uptime"
             "cpu"

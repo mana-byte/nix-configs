@@ -10,6 +10,4 @@
       enable32Bit = true;
     };
   };
-  # Basic display setup
-  # boot.initrd.kernelModules = ["amdgpu"];
 }

@@ -378,7 +378,13 @@
                 treesitter = {
                   enable = true;
                   indent.enable = true;
-                  context.enable = true;
+                  fold = true;
+                  context = {
+                    enable = true;
+                    setupOpts = {
+                      max_lines = 4;
+                    };
+                  };
                 };
 
                 languages = {
@@ -481,7 +487,7 @@
                     vim.diagnostic.config({ virtual_text = false }) -- Disable default virtual text
                   '';
                 };
-                camouflage-nvim = {
+                cloak-nvim = {
                   package = pkgs.vimPlugins.cloak-nvim;
                   setup = ''
                     require("cloak").setup({

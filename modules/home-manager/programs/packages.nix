@@ -56,9 +56,6 @@
         s-tui
         htop
 
-        # bluetooth interface
-        adw-bluetooth
-
         # libreoffice
         libreoffice-fresh
       ];

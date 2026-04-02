@@ -44,6 +44,7 @@
         # python
         uv
         python3
+        black
 
         dotenv-cli
       ];

@@ -10,7 +10,7 @@
       nixpkgs.config.allowUnfree = true;
       home.packages = with pkgs; [
         # minecraft
-        modrinth-app-unwrapped
+        modrinth-app
       ];
     };
 }

@@ -27,7 +27,7 @@
       # packages
       desktopPackages
       devPackages
-      gamePackages
+      # gamePackages
     ];
   };
 }

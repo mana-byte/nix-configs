@@ -28,6 +28,7 @@
           modules =
             modules
             ++ [
+              # Base home configuration for all hosts
               {
                 home.username = hostName;
                 home.homeDirectory = "/home/${hostName}";

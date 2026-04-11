@@ -9,8 +9,9 @@
     allowUnfree = true;
     stateVersion = "25.11";
     packageModules = with self.nixosModules; [
-      gaming
+      grubTheme
       basicPackages
+      gaming
       font
     ];
     systemModules = with self.nixosModules; [
@@ -25,12 +26,15 @@
       languageFr
 
       # System
+      grub
       asusd
       audio
       tlp
       basicConnection
       usbAutoMount
       gc30d
+
+      # # Optional
       # cuda
       # vm
     ];

@@ -6,6 +6,6 @@
     pkgs,
     ...
   }: {
-    xdg.configFile."me".source = ../dotfiles/me;
+    xdg.configFile."me".source = ../../dotfiles/me;
   };
 }

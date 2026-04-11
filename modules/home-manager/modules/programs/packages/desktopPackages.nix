@@ -58,6 +58,9 @@
 
         # libreoffice
         libreoffice-fresh
+
+        # calculator
+        numr
       ];
     };
 }

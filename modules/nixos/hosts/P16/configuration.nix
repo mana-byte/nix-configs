@@ -24,7 +24,7 @@
       };
 
       ### amdgpu
-      services.xserver.videoDrivers = [ "amdgpu" ]; # add nvidia
+      services.xserver.videoDrivers = [ "amdgpu" ];
       boot.initrd.kernelModules = [ "amdgpu" ];
 
       ### Programs
@@ -63,7 +63,5 @@
 
       hardware.enableRedistributableFirmware = true;
       hardware.enableAllFirmware = true;
-
-      system.stateVersion = "25.11";
     };
 }

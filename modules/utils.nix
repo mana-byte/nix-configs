@@ -12,7 +12,7 @@
       modules,
       stable ? false,
       nix-index-database ? false,
-      homeStateVersion ? "24.05", # read before before changing
+      homeStateVersion,
       ...
     }:
     withSystem "${system}" (
@@ -52,6 +52,7 @@
       user ? self.nixosModules.mana,
       packageModules ? [ ],
       systemModules ? [ ],
+      stateVersion,
       allowUnfree ? true,
       experimentalFeatures ? [
         "nix-command"
@@ -68,6 +69,7 @@
         {
           nixpkgs.config.allowUnfree = allowUnfree;
           nix.settings.experimental-features = experimentalFeatures;
+          system.stateVersion = "${stateVersion}";
         }
       ];
     };

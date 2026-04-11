@@ -7,6 +7,7 @@
   flake.nixosConfigurations.manaP16 = inputs.self.modules.nixos.mkConfig {
     user = self.nixosModules.mana;
     allowUnfree = true;
+    stateVersion = "25.11";
     packageModules = with self.nixosModules; [
       gaming
       basicPackages

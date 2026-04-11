@@ -1,5 +1,6 @@
 {
   inputs,
+  self,
   withSystem,
   ...
 }:
@@ -45,4 +46,29 @@
         ];
       }
     );
+
+  flake.modules.nixos.mkConfig =
+    {
+      user ? self.nixosModules.mana,
+      packageModules ? [ ],
+      systemModules ? [ ],
+      allowUnfree ? true,
+      experimentalFeatures ? [
+        "nix-command"
+        "flakes"
+      ],
+    }:
+    inputs.nixpkgs.lib.nixosSystem {
+      modules = [
+        user
+      ]
+      ++ packageModules
+      ++ systemModules
+      ++ [
+        {
+          nixpkgs.config.allowUnfree = allowUnfree;
+          nix.settings.experimental-features = experimentalFeatures;
+        }
+      ];
+    };
 }

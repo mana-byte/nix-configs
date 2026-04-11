@@ -15,7 +15,7 @@
   };
 
   inputs = {
-    #Nixpkgs versions
+    # Nixpkgs versions
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 

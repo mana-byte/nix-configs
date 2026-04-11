@@ -12,6 +12,10 @@
       ...
     }:
     {
+      imports = [
+        /etc/nixos/hardware-configuration.nix
+      ];
+
       ### Basic System Settings
       services.logind.settings.Login = {
         HandleLidSwitchDocked = "ignore";
@@ -39,11 +43,6 @@
         WLR_NO_HARDWARE_CURSOR = "1";
         NIXOS_OZONE_WL = "1";
       };
-
-      nix.settings.experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
 
       ### BOOT and Sytem
       boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];

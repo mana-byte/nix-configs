@@ -4,11 +4,17 @@
   ...
 }:
 {
-  flake.nixosConfigurations.manaP16 = inputs.nixpkgs.lib.nixosSystem {
-    modules = with self.nixosModules; [
+  flake.nixosConfigurations.manaP16 = inputs.self.modules.nixos.mkConfig {
+    user = self.nixosModules.mana;
+    allowUnfree = true;
+    packageModules = with self.nixosModules; [
+      gaming
+      basicPackages
+      font
+    ];
+    systemModules = with self.nixosModules; [
       # P16 specific
       configurationP16
-      hardwareP16
       nvidiaP16
 
       # graphics and ui
@@ -16,7 +22,6 @@
       hyprlandOS
       displayManagerGDM
       languageFr
-      font
 
       # System
       asusd
@@ -27,13 +32,6 @@
       gc30d
       # cuda
       # vm
-
-      # packages and softwares
-      gaming
-      basicPackages
-
-      # user
-      mana
     ];
   };
 }

@@ -4,9 +4,6 @@
     pkgs,
     ...
   }: {
-    # Allow unfree packages
-    nixpkgs.config.allowUnfree = true;
-
     environment.systemPackages = with pkgs; [
       # linux firmware
       linux-firmware

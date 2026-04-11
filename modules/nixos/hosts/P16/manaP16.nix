@@ -2,7 +2,8 @@
   inputs,
   self,
   ...
-}: {
+}:
+{
   flake.nixosConfigurations.manaP16 = inputs.nixpkgs.lib.nixosSystem {
     modules = with self.nixosModules; [
       # P16 specific
@@ -10,23 +11,26 @@
       hardwareP16
       nvidiaP16
 
-      # Modules
-      # cuda
-      # vm
+      # graphics and ui
+      basicGraphics
+      hyprlandOS
+      displayManagerGDM
+      languageFr
+      font
+
+      # System
       asusd
       audio
-      basicPackages
-      basicGraphics
-      basicConnection
-      displayManagerGDM
-      font
-      hyprlandOS
-      languageFr
       tlp
+      basicConnection
       usbAutoMount
       gc30d
+      # cuda
+      # vm
 
+      # packages and softwares
       gaming
+      basicPackages
 
       # user
       mana

@@ -3,7 +3,6 @@
   flake.homeConfigurations.mana = inputs.self.modules.home-manager.mkConfig {
     hostName = "mana";
     nix-index-database = true;
-    # Set home state version
     homeStateVersion = "24.05";
     modules = with inputs.self.homeModules; [
       git_mana-byte
@@ -12,6 +11,7 @@
       kitty
       starship
       fastfetch
+      # drift # not available for nixpkgs-25.11
 
       #Desktop
       waybar

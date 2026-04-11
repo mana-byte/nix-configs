@@ -10,6 +10,10 @@
         alias CD="cd ~/Desktop"
         alias OSRC="cd ~/Desktop/OPEN_SOURCE"
         alias neofetch="fastfetch"
+
+        # Drift
+        export DRIFT_TIMEOUT=120
+        eval "$(drift shell-init bash)"
       '';
     };
   };

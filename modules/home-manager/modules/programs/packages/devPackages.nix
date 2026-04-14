@@ -9,44 +9,46 @@
     {
       nixpkgs.config.allowUnfree = true;
 
-      home.packages = with pkgs; [
-        # system info : battery health, cpu temp, memory usage, disk usage, etc.
-        inxi
-        tldr
+      home.packages =
+        with pkgs;
+        [
+          # system info : battery health, cpu temp, memory usage, disk usage, etc.
+          inxi
+          tldr
 
-        #run software without installation requires nix index db in flake input
-        comma
+          #run software without installation requires nix index db in flake input
+          comma
 
-        # kill all processes of a specific name
-        killall
-        # work basics
-        neovim
-        gh
-        tmux
-        clipman
+          # kill all processes of a specific name
+          killall
+          # work basics
+          neovim
+          gh
+          tmux
 
-        # NIx prefetch scripts
-        nix-prefetch-scripts
-        # nixpkgs review
-        nixpkgs-review
+          # NIx prefetch scripts
+          nix-prefetch-scripts
+          # nixpkgs review
+          nixpkgs-review
 
-        # Useful TUI apps
-        lazydocker
+          # Useful TUI apps
+          lazydocker
 
-        # coding cli
-        mistral-vibe
+          # nvf dependencies
+          nodejs
+          gcc
+          ripgrep
 
-        # nvf dependencies
-        nodejs
-        gcc
-        ripgrep
+          # python
+          uv
+          python3
+          black
 
-        # python
-        uv
-        python3
-        black
-
-        dotenv-cli
-      ];
+          dotenv-cli
+        ]
+        ++ lib.optional stdenv.hostPlatform.isLinux [
+          # linux specific tools
+          clipman
+        ];
     };
 }

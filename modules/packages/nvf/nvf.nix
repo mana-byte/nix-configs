@@ -408,6 +408,11 @@
                     lsp.enable = true;
                     treesitter.enable = true;
                   };
+                  typescript = {
+                    enable = true;
+                    lsp.enable = true;
+                    treesitter.enable = true;
+                  };
                   markdown = {
                     enable = true;
                     extensions.markview-nvim.enable = true;

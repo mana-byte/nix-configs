@@ -32,7 +32,8 @@
           # Base home configuration for all hosts
           {
             home.username = hostName;
-            home.homeDirectory = "/home/${hostName}";
+            home.homeDirectory =
+              if system == "aarch64-darwin" then "/Users/${hostName}" else "/home/${hostName}";
             home.stateVersion = homeStateVersion;
             home.sessionVariables = {
               EDITOR = "nvim";

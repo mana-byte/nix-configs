@@ -46,9 +46,10 @@
 
           dotenv-cli
         ]
-        ++ lib.optional stdenv.hostPlatform.isLinux [
+        ++ lib.optionals stdenv.hostPlatform.isLinux [
           # linux specific tools
           clipman
+          # vibe
           uv
         ];
     };

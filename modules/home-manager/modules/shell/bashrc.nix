@@ -1,4 +1,5 @@
-{inputs, ...}: {
+{ ... }:
+{
   flake.homeModules.bashrc = {
     #BASHRC AND ALIASES
     programs.bash = {

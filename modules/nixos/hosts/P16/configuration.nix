@@ -10,10 +10,6 @@
       ...
     }:
     {
-      # imports = [
-      #   /etc/nixos/hardware-configuration.nix
-      # ];
-
       ### Basic System Settings
       services.logind.settings.Login = {
         HandleLidSwitchDocked = "ignore";
@@ -29,6 +25,8 @@
       security.polkit.enable = true;
       programs.nh = {
         enable = true;
+        clean.enable = true;
+        flake = "/home/mana/Desktop/nix-configs";
       };
       programs.mtr.enable = true;
       programs.gnupg.agent = {

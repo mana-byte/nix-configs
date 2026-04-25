@@ -14,7 +14,14 @@
           cdconfig = "cd $HOME/Desktop/nix-configs";
           CD = "cd $HOME/Desktop";
           nvf = "nvim";
+          neofetch = "fastfetch";
+          OSRC = "cd $HOME/Desktop/OPEN_SOURCE";
         };
+        initExtra = ''
+          eval "$(starship init zsh)"
+          export DRIFT_TIMEOUT=120
+          eval "$(drift shell-init zsh)"
+        '';
         history.size = 10000;
       };
     };

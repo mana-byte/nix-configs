@@ -7,6 +7,7 @@
       ...
     }:
     let
+
       kittyCardsScript = ''
         #!/usr/bin/env zsh
         # Script to display random ASCII art and apply cached colors to the current kitty window only

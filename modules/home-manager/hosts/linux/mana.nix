@@ -22,7 +22,8 @@
       meAssets
 
       #Shell specific
-      bashrc
+      zshrc
+      # bashrc
 
       # packages
       desktopPackages

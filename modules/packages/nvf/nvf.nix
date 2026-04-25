@@ -59,13 +59,20 @@
                     desc = "Format buffer";
                   }
 
-                  # File explorer (oil)
+                  # File explorer (oil, neotree)
                   {
                     key = "-";
                     mode = [ "n" ];
                     action = ":Oil<CR>";
                     silent = true;
                     desc = "Open Oil";
+                  }
+                  {
+                    key = "<leader>-";
+                    mode = [ "n" ];
+                    action = ":Neotree toggle<CR>";
+                    silent = true;
+                    desc = "Open neotree";
                   }
 
                   # Noice dismiss (noice)
@@ -230,7 +237,10 @@
                   }
                 ];
 
-                git.enable = true;
+                git = {
+                  enable = true;
+                  vim-fugitive.enable = true;
+                };
                 lsp.enable = true;
                 lazy.enable = true;
 
@@ -291,7 +301,10 @@
                     liveGrep = "<leader>fg";
                   };
                 };
-                filetree.nvimTree.enable = true;
+
+                filetree.neo-tree = {
+                  enable = true;
+                };
 
                 utility = {
                   oil-nvim = {

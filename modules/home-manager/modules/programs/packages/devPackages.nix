@@ -49,7 +49,7 @@
         ++ lib.optionals stdenv.hostPlatform.isLinux [
           # linux specific tools
           clipman
-          # vibe
+          # mistral-vibe
           uv
         ];
     };

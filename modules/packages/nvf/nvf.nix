@@ -68,7 +68,7 @@
                     desc = "Open Oil";
                   }
 
-                  # Noice dismiss
+                  # Noice dismiss (noice)
                   {
                     key = "<leader>nd";
                     mode = [ "n" ];
@@ -180,6 +180,8 @@
                     silent = true;
                     desc = "Diagnostics to loclist";
                   }
+
+                  # Windows management (windows.nvim)
                   {
                     key = "<leader>we";
                     mode = [ "n" ];
@@ -208,6 +210,16 @@
                     silent = true;
                     desc = "Open Git interface";
                   }
+
+                  # pounce/leap (pounce.nvim)
+                  {
+                    key = "s";
+                    mode = [ "n" ];
+                    action = ":Pounce<CR>";
+                    silent = true;
+                    desc = "Jump to a location";
+                  }
+
                   # Additional keymaps can be added here following the same structure
                   {
                     key = "<leader>ss";
@@ -235,16 +247,16 @@
                   number = true;
                   relativenumber = true;
                   signcolumn = "yes";
-                  termguicolors = true; # True color
-                  updatetime = 400; # Faster CursorHold
-                  scrolloff = 1; # Context lines around cursor
-                  splitbelow = true; # New horizontal splits below
-                  splitright = true; # New vertical splits to the right
-                  timeoutlen = 400; # Faster mapped sequence timeout
-                  ignorecase = true; # Case-insensitive search
-                  smartcase = true; # Override ignorecase if uppercase in search
+                  termguicolors = true;
+                  updatetime = 400;
+                  scrolloff = 1;
+                  splitbelow = true;
+                  splitright = true;
+                  timeoutlen = 400;
+                  ignorecase = true;
+                  smartcase = true;
                 };
-                clipboard.enable = true; # System clipboard integration
+                clipboard.enable = true;
 
                 theme = {
                   enable = true;
@@ -266,7 +278,7 @@
                       setup = {
                         fzf = {
                           fuzzy = true;
-                          case_mode = "smart_case"; # Added smarter case handling
+                          case_mode = "smart_case";
                         };
                       };
                     }
@@ -291,20 +303,19 @@
                     };
                   };
                   undotree.enable = true;
-                  motion.leap = {
-                    enable = true;
-                    mappings = {
-                      leapForwardTo = "<leader>s";
-                      leapBackwardTo = "<leader>S";
-                    };
-                  };
                   ccc = {
                     enable = true;
                     mappings.quit = "q";
                   };
                   surround.enable = true;
                 };
-                terminal.toggleterm.enable = true;
+                terminal.toggleterm = {
+                  enable = true;
+                  mappings.open = "<leader>tt";
+                  setupOpts = {
+                    winbar.enable = true;
+                  };
+                };
 
                 binds.whichKey.enable = true;
                 notes.todo-comments.enable = true;
@@ -316,7 +327,9 @@
                     command_palette = true;
                   };
                 };
-                notify.nvim-notify.enable = true; # for noice notifications
+
+                # for noice notifications
+                notify.nvim-notify.enable = true;
 
                 visuals = {
                   nvim-web-devicons.enable = true;
@@ -331,8 +344,8 @@
                       nix = [ "nixfmt" ];
                       javascript = [ "prettier" ];
                       typescript = [ "prettier" ];
-                      javascriptreact = [ "prettier" ]; # eslint removed (handled by LSP diagnostics if desired)
-                      typescriptreact = [ "prettier" ]; # eslint removed
+                      javascriptreact = [ "prettier" ];
+                      typescriptreact = [ "prettier" ];
                     };
                   };
                 };
@@ -344,14 +357,6 @@
 
                 # Autocompletion & snippets
                 autocomplete = {
-                  # blink-cmp = {
-                  #   enable = true;
-                  #   friendly-snippets.enable = true;
-                  #   mappings = {
-                  #     next = "<c-n>";
-                  #     previous = "<c-p>";
-                  #   };
-                  # };
                   nvim-cmp = {
                     enable = true;
                     mappings = {
@@ -360,7 +365,9 @@
                     };
                   };
                 };
-                ui.borders.plugins.nvim-cmp.enable = true; # nvim cmp borders
+
+                # nvim cmp borders
+                ui.borders.plugins.nvim-cmp.enable = true;
 
                 lsp.trouble.enable = true;
                 comments.comment-nvim.enable = true;
@@ -372,7 +379,12 @@
                     cmp.enable = true;
                     setupOpts.suggestion.enabled = false;
                   };
-                  # avante-nvim.enable = true;
+
+                  avante-nvim = {
+                    enable = true;
+                    setupOpts = {
+                    };
+                  };
                 };
 
                 treesitter = {
@@ -423,8 +435,30 @@
               };
 
               vim.extraPlugins = {
+
+                # simple jump plugin
+                pounce-nvim =
+                  let
+                    pounce = pkgs.vimUtils.buildVimPlugin {
+                      pname = "pounce";
+                      version = "2026-04-25";
+                      src = pkgs.fetchFromGitHub {
+                        owner = "rlane";
+                        repo = "pounce.nvim";
+                        rev = "2e36399ac09b517770c459f1a123e6b4b4c1c171";
+                        sha256 = "sha256-PTL0wwUE1sO6YlJNPnlNilKyR5kQDBYXiDM5gh6pkuM=";
+                      };
+                      meta.homepage = "https://github.com/rlane/pounce.nvim";
+                      meta.hydraPlatforms = [ ];
+                    };
+                  in
+                  {
+                    package = pounce;
+                    # optional setup function
+                  };
+
+                # for windows animation and better split handling
                 windows = {
-                  # for windows animation and better split handling
                   package = pkgs.vimPlugins.windows-nvim;
                   setup = ''
                     vim.o.winwidth = 10
@@ -434,55 +468,38 @@
                   '';
                 };
 
+                # for git commit history in statusline
                 lensline-nvim = {
-                  # for git commit history in statusline
                   package = pkgs.vimPlugins.lensline-nvim;
                   setup = ''
                     require("lensline").setup()
                   '';
                 };
 
-                smear-cursor-nvim = {
-                  # for git commit history in statusline
-                  package = pkgs.vimPlugins.smear-cursor-nvim;
-                  # setup = ''
-                  #   require('smear_cursor').enabled = true
-                  #   require('smear_cursor').setup({
-                  #        cursor_color = "#ff4000",
-                  #        particles_enabled = true,
-                  #        stiffness = 0.5,
-                  #        trailing_stiffness = 0.2,
-                  #        trailing_exponent = 5,
-                  #        damping = 0.6,
-                  #        gradient_exponent = 0,
-                  #        gamma = 1,
-                  #        never_draw_over_target = true, -- if you want to actually see under the cursor
-                  #        hide_target_hack = true,       -- same
-                  #        particle_spread = 1,
-                  #        particles_per_second = 500,
-                  #        particles_per_length = 50,
-                  #        particle_max_lifetime = 800,
-                  #        particle_max_initial_velocity = 20,
-                  #        particle_velocity_from_cursor = 0.5,
-                  #        particle_damping = 0.15,
-                  #        particle_gravity = -50,
-                  #        min_distance_emit_particles = 0,
-                  #   })
-                  # '';
-                  setup = ''
-                    require('smear_cursor').enable = true
-                    require('smear_cursor').setup({
-                        stiffness = 0.8,                      -- 0.6      [0, 1]
-                        trailing_stiffness = 0.6,             -- 0.45     [0, 1]
-                        stiffness_insert_mode = 0.7,          -- 0.5      [0, 1]
-                        trailing_stiffness_insert_mode = 0.7, -- 0.5      [0, 1]
-                        damping = 0.95,                       -- 0.85     [0, 1]
-                        damping_insert_mode = 0.95,           -- 0.9      [0, 1]
-                        distance_stop_animating = 0.5,        -- 0.1      > 0
-                    })
-                  '';
-                };
+                # for animations on startup
+                milli-nvim =
+                  let
+                    milli = pkgs.vimUtils.buildVimPlugin {
+                      pname = "milli";
+                      version = "v0.1.0";
+                      src = pkgs.fetchFromGitHub {
+                        owner = "Amansingh-afk";
+                        repo = "milli.nvim";
+                        rev = "3dc814ef4d914eccd7e7193850f7dd3b23bd785e";
+                        sha256 = "sha256-xfbQnjPRFIYM0Hg9ZI7RDazsvKqY8BdpH6ZARYCkm5c=";
+                      };
+                      meta.homepage = "https://github.com/Amansingh-afk/milli.nvim";
+                      meta.hydraPlatforms = [ ];
+                    };
+                  in
+                  {
+                    package = milli;
+                    setup = ''
+                      require("milli").alpha({ splash = "vibecattwo", loop = true })
+                    '';
+                  };
 
+                # for call visual inline diagnostics instead of virtual text
                 tiny-inline-diagnostic = {
                   package = pkgs.vimPlugins.tiny-inline-diagnostic-nvim;
                   setup = ''
@@ -492,6 +509,8 @@
                     vim.diagnostic.config({ virtual_text = false }) -- Disable default virtual text
                   '';
                 };
+
+                # to hide .env files and other secrets
                 cloak-nvim = {
                   package = pkgs.vimPlugins.cloak-nvim;
                   setup = ''
@@ -501,6 +520,47 @@
                     })
                   '';
                 };
+
+                # smear-cursor-nvim = {
+                #   # for git commit history in statusline
+                #   package = pkgs.vimPlugins.smear-cursor-nvim;
+                #   # setup = ''
+                #   #   require('smear_cursor').enabled = true
+                #   #   require('smear_cursor').setup({
+                #   #        cursor_color = "#ff4000",
+                #   #        particles_enabled = true,
+                #   #        stiffness = 0.5,
+                #   #        trailing_stiffness = 0.2,
+                #   #        trailing_exponent = 5,
+                #   #        damping = 0.6,
+                #   #        gradient_exponent = 0,
+                #   #        gamma = 1,
+                #   #        never_draw_over_target = true, -- if you want to actually see under the cursor
+                #   #        hide_target_hack = true,       -- same
+                #   #        particle_spread = 1,
+                #   #        particles_per_second = 500,
+                #   #        particles_per_length = 50,
+                #   #        particle_max_lifetime = 800,
+                #   #        particle_max_initial_velocity = 20,
+                #   #        particle_velocity_from_cursor = 0.5,
+                #   #        particle_damping = 0.15,
+                #   #        particle_gravity = -50,
+                #   #        min_distance_emit_particles = 0,
+                #   #   })
+                #   # '';
+                #   setup = ''
+                #     require('smear_cursor').enable = true
+                #     require('smear_cursor').setup({
+                #         stiffness = 0.8,                      -- 0.6      [0, 1]
+                #         trailing_stiffness = 0.6,             -- 0.45     [0, 1]
+                #         stiffness_insert_mode = 0.7,          -- 0.5      [0, 1]
+                #         trailing_stiffness_insert_mode = 0.7, -- 0.5      [0, 1]
+                #         damping = 0.95,                       -- 0.85     [0, 1]
+                #         damping_insert_mode = 0.95,           -- 0.9      [0, 1]
+                #         distance_stop_animating = 0.5,        -- 0.1      > 0
+                #     })
+                #   '';
+                # };
               };
             }
           ];

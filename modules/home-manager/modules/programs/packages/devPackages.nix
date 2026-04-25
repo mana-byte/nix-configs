@@ -40,15 +40,16 @@
           ripgrep
 
           # python
-          uv
+          # uv
           python3
-          black
+          ruff
 
           dotenv-cli
         ]
         ++ lib.optional stdenv.hostPlatform.isLinux [
           # linux specific tools
           clipman
+          uv
         ];
     };
 }

@@ -40,15 +40,15 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 
     # nix darwin module
-    nix-darwin.url = "github:LnL7/nix-darwin";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nix-darwin.url = "github:nix-darwin/nix-darwin/master";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
 
-  outputs = inputs @ {
-    flake-parts,
-    import-tree,
-    ...
-  }:
-    flake-parts.lib.mkFlake {inherit inputs;}
-    (inputs.import-tree ./modules);
+  outputs =
+    inputs@{
+      flake-parts,
+      import-tree,
+      ...
+    }:
+    flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 }

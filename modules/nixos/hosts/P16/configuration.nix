@@ -10,9 +10,9 @@
       ...
     }:
     {
-      imports = [
-        /etc/nixos/hardware-configuration.nix
-      ];
+      # imports = [
+      #   /etc/nixos/hardware-configuration.nix
+      # ];
 
       ### Basic System Settings
       services.logind.settings.Login = {

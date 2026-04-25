@@ -327,12 +327,12 @@
                     enable = true;
                     setupOpts.formatters_by_ft = {
                       lua = [ "stylua" ];
-                      python = [ "black" ];
+                      python = [ "ruff" ];
                       nix = [ "nixfmt" ];
-                      javascript = [ "biome" ];
-                      typescript = [ "biome" ];
-                      javascriptreact = [ "biome" ]; # eslint removed (handled by LSP diagnostics if desired)
-                      typescriptreact = [ "biome" ]; # eslint removed
+                      javascript = [ "prettier" ];
+                      typescript = [ "prettier" ];
+                      javascriptreact = [ "prettier" ]; # eslint removed (handled by LSP diagnostics if desired)
+                      typescriptreact = [ "prettier" ]; # eslint removed
                     };
                   };
                 };
@@ -408,7 +408,7 @@
                     lsp.enable = true;
                     treesitter.enable = true;
                   };
-                  typescript = {
+                  ts = {
                     enable = true;
                     lsp.enable = true;
                     treesitter.enable = true;

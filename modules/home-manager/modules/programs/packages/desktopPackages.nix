@@ -30,7 +30,6 @@
         gnome-themes-extra
         rose-pine-hyprcursor
         swww
-        pywal
         nwg-look
 
         # rofi applets dependencies: https://github.com/adi1090x/rofi?tab=readme-ov-file

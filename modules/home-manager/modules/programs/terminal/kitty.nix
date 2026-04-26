@@ -58,6 +58,7 @@
       '';
     in
     {
+      programs.zsh.enable = true;
       programs.kitty = {
         enable = true;
         settings = {
@@ -75,7 +76,7 @@
           italic_font = "DepartureMono Nerd Font";
           bold_italic_font = "DepartureMono Nerd Font";
 
-          font_size = 10.0;
+          font_size = 11.0;
         };
       };
       home.file.".config/kitty/kitty_cards.sh" = {

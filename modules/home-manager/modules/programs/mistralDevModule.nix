@@ -13,7 +13,7 @@
         src = pkgs.fetchFromGitHub {
           owner = "astral-sh";
           repo = "uv";
-          tag = "0.10.2";
+          tag = version;
           hash = "sha256-7huzemS9BLCOmfzr2cSd8Tc4PtTJV0peYQ5FN2VaPKw=";
         };
 

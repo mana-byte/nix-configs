@@ -74,6 +74,13 @@
                     silent = true;
                     desc = "Open neotree";
                   }
+                  {
+                    key = "<leader>;";
+                    mode = ["n"];
+                    action = ":lua require('dropbar.api').pick()<CR>";
+                    silent = true;
+                    desc = "Pick from dropbar";
+                  }
 
                   # Noice dismiss (noice)
                   {
@@ -363,24 +370,22 @@
                   };
                 };
 
-                dashboard.alpha = {
-                  enable = true;
-                  theme = "theta";
-                };
+                mini.starter.enable = true;
 
                 # Autocompletion & snippets
                 autocomplete = {
                   nvim-cmp = {
                     enable = true;
                     mappings = {
+                      confirm = "<tab>";
                       next = "<c-n>";
                       previous = "<c-p>";
                     };
                   };
                 };
 
-                # nvim cmp borders
-                ui.borders.plugins.nvim-cmp.enable = true;
+                # # nvim cmp borders (can be removed for less visual clutter)
+                # ui.borders.plugins.nvim-cmp.enable = true;
 
                 lsp.trouble.enable = true;
                 comments.comment-nvim.enable = true;
@@ -467,7 +472,6 @@
                   in
                   {
                     package = pounce;
-                    # optional setup function
                   };
 
                 # for windows animation and better split handling
@@ -489,29 +493,6 @@
                   '';
                 };
 
-                # for animations on startup
-                milli-nvim =
-                  let
-                    milli = pkgs.vimUtils.buildVimPlugin {
-                      pname = "milli";
-                      version = "v0.1.0";
-                      src = pkgs.fetchFromGitHub {
-                        owner = "Amansingh-afk";
-                        repo = "milli.nvim";
-                        rev = "3dc814ef4d914eccd7e7193850f7dd3b23bd785e";
-                        sha256 = "sha256-xfbQnjPRFIYM0Hg9ZI7RDazsvKqY8BdpH6ZARYCkm5c=";
-                      };
-                      meta.homepage = "https://github.com/Amansingh-afk/milli.nvim";
-                      meta.hydraPlatforms = [ ];
-                    };
-                  in
-                  {
-                    package = milli;
-                    setup = ''
-                      require("milli").alpha({ splash = "vibecattwo", loop = true })
-                    '';
-                  };
-
                 # for call visual inline diagnostics instead of virtual text
                 tiny-inline-diagnostic = {
                   package = pkgs.vimPlugins.tiny-inline-diagnostic-nvim;
@@ -531,6 +512,16 @@
                       enabled = true,
                       cloak_telescope = true,
                     })
+                  '';
+                };
+
+                # view context more easly
+                dropbar-nvim.package = pkgs.vimPlugins.dropbar-nvim;
+
+                auto-session-nvim = {
+                  package = pkgs.vimPlugins.auto-session;
+                  setup = ''
+                    require("auto-session").setup({})
                   '';
                 };
 

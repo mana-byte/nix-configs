@@ -4,7 +4,7 @@
   ...
 }:
 {
-  flake.nixosConfigurations.manaP16 = inputs.self.modules.nixos.mkConfig {
+  flake.nixosConfigurations.manaP16 = inputs.builders.lib.nixos.mkConfig {
     user = self.nixosModules.mana;
     allowUnfree = true;
     stateVersion = "25.11";

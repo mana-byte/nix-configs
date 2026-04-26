@@ -46,6 +46,8 @@
       url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    builders.url = ./lib;
   };
 
   outputs =

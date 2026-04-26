@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  flake.homeConfigurations.mana = inputs.self.modules.home-manager.mkConfig {
+  flake.homeConfigurations.mana = inputs.builders.lib.home-manager.mkConfig {
     hostName = "mana";
     nix-index-database = true;
     homeStateVersion = "24.05";

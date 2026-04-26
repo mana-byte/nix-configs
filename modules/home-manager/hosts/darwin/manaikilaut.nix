@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  flake.homeConfigurations."manaiki.laut" = inputs.self.modules.home-manager.mkConfig {
+  flake.homeConfigurations."manaiki.laut" = inputs.builders.lib.home-manager.mkConfig {
     hostName = "manaiki.laut";
     system = "aarch64-darwin";
     nix-index-database = true;

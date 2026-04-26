@@ -17,7 +17,7 @@
           neofetch = "fastfetch";
           OSRC = "cd $HOME/Desktop/OPEN_SOURCE";
         };
-        initExtra = ''
+        initContent = ''
           eval "$(starship init zsh)"
           export DRIFT_TIMEOUT=120
           eval "$(drift shell-init zsh)"

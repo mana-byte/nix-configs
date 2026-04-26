@@ -17,10 +17,10 @@
           hash = "sha256-7huzemS9BLCOmfzr2cSd8Tc4PtTJV0peYQ5FN2VaPKw=";
         };
 
+        # See: https://github.com/Mic92/nix-update/issues/474#issuecomment-4149762084
         cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
           inherit src;
-          hash = "";
-          cargoRoot = "uv-0.10.2";
+          hash = "sha256-kSpRcliQpCCjpZUSCwd9THszOSmdXDIooJA4ZPtRjvo=";
         };
       });
     in
@@ -38,6 +38,7 @@
         biome
         cargo
         azure-cli
+        uv0102
       ];
       programs.zsh = {
         enable = true;

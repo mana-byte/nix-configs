@@ -2,6 +2,7 @@
 {
   flake.darwinConfigurations.mistral =
     let
+      primaryUser = "manaiki.laut";
       baseConfiguration =
         { pkgs, ... }:
         {
@@ -10,8 +11,15 @@
             vim
             git
             discord
+            cowsay
             nh
           ];
+
+          # programs.nh = {
+          #   enable = true;
+          #   clean.enable = true;
+          #   flake = "/Users/${primaryUser}/Desktop/nix-configs";
+          # };
 
           # Necessary for using flakes on this system.
           nix.settings.experimental-features = "nix-command flakes";
@@ -20,9 +28,6 @@
 
           homebrew = {
             enable = true;
-            taps = [
-              "homebrew/core"
-            ];
             # CLI APPS
             brews = [
               "freetype"
@@ -42,7 +47,7 @@
           # $ darwin-rebuild changelog
           system.stateVersion = 6;
 
-          system.primaryUser = "manaiki.laut";
+          system.primaryUser = primaryUser;
 
           # The platform the configuration will be used on.
           nixpkgs.hostPlatform = "aarch64-darwin";

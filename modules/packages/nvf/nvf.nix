@@ -76,7 +76,7 @@
                   }
                   {
                     key = "<leader>;";
-                    mode = ["n"];
+                    mode = [ "n" ];
                     action = ":lua require('dropbar.api').pick()<CR>";
                     silent = true;
                     desc = "Pick from dropbar";
@@ -251,27 +251,25 @@
                 lsp.enable = true;
                 lazy.enable = true;
 
-                globals = {
-                  mapleader = ",";
-                };
+                globals.mapleader = ",";
 
                 options = {
-                  tabstop = 2;
-                  shiftwidth = 2;
-                  softtabstop = 2;
-                  expandtab = true;
                   cursorline = true;
+                  expandtab = true;
+                  ignorecase = true;
                   number = true;
                   relativenumber = true;
-                  signcolumn = "yes";
-                  termguicolors = true;
-                  updatetime = 400;
                   scrolloff = 1;
+                  shiftwidth = 2;
+                  signcolumn = "yes";
+                  smartcase = true;
+                  softtabstop = 2;
                   splitbelow = true;
                   splitright = true;
+                  tabstop = 2;
+                  termguicolors = true;
                   timeoutlen = 400;
-                  ignorecase = true;
-                  smartcase = true;
+                  updatetime = 400;
                 };
                 clipboard.enable = true;
 
@@ -351,9 +349,7 @@
                 # for noice notifications
                 notify.nvim-notify.enable = true;
 
-                visuals = {
-                  nvim-web-devicons.enable = true;
-                };
+                visuals.nvim-web-devicons.enable = true;
 
                 formatter = {
                   conform-nvim = {
@@ -455,24 +451,18 @@
               vim.extraPlugins = {
 
                 # simple jump plugin
-                pounce-nvim =
-                  let
-                    pounce = pkgs.vimUtils.buildVimPlugin {
-                      pname = "pounce";
-                      version = "2026-04-25";
-                      src = pkgs.fetchFromGitHub {
-                        owner = "rlane";
-                        repo = "pounce.nvim";
-                        rev = "2e36399ac09b517770c459f1a123e6b4b4c1c171";
-                        sha256 = "sha256-PTL0wwUE1sO6YlJNPnlNilKyR5kQDBYXiDM5gh6pkuM=";
-                      };
-                      meta.homepage = "https://github.com/rlane/pounce.nvim";
-                      meta.hydraPlatforms = [ ];
-                    };
-                  in
-                  {
-                    package = pounce;
+                pounce-nvim.package = pkgs.vimUtils.buildVimPlugin {
+                  pname = "pounce";
+                  version = "2026-04-25";
+                  src = pkgs.fetchFromGitHub {
+                    owner = "rlane";
+                    repo = "pounce.nvim";
+                    rev = "2e36399ac09b517770c459f1a123e6b4b4c1c171";
+                    sha256 = "sha256-PTL0wwUE1sO6YlJNPnlNilKyR5kQDBYXiDM5gh6pkuM=";
                   };
+                  meta.homepage = "https://github.com/rlane/pounce.nvim";
+                  meta.hydraPlatforms = [ ];
+                };
 
                 # for windows animation and better split handling
                 windows = {

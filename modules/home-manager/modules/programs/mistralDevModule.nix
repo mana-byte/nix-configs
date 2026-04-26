@@ -7,7 +7,8 @@
       ...
     }:
     let
-      uv0102 = pkgs.uv.overrideAttrs (old: {
+      uv0102 = pkgs.uv.overrideAttrs (old: rec {
+        inherit (old) pname;
         version = "0.10.2";
         src = pkgs.fetchFromGitHub {
           owner = "astral-sh";
@@ -15,7 +16,12 @@
           tag = "0.10.2";
           hash = "sha256-7huzemS9BLCOmfzr2cSd8Tc4PtTJV0peYQ5FN2VaPKw=";
         };
-        cargoHash = "sha256-kSpRcliQpCCjpZUSCwd9THszOSmdXDIooJA4ZPtRjvo=";
+
+        cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
+          inherit src;
+          hash = "";
+          cargoRoot = "uv-0.10.2";
+        };
       });
     in
     {

@@ -22,7 +22,10 @@
           # };
 
           # Necessary for using flakes on this system.
-          nix.settings.experimental-features = "nix-command flakes";
+          nix.settings = {
+            experimental-features = "nix-command flakes";
+            trusted-users = [ "root" "${primaryUser}" ];
+          };
           nix.enable = false;
           nixpkgs.config.allowUnfree = true;
 

@@ -518,10 +518,13 @@
                 # view context more easly
                 dropbar-nvim.package = pkgs.vimPlugins.dropbar-nvim;
 
+                # for automatic session saving in cwd (SUPER USEFUL)
                 auto-session-nvim = {
                   package = pkgs.vimPlugins.auto-session;
                   setup = ''
-                    require("auto-session").setup({})
+                    require("auto-session").setup({
+                      show_auto_restore_notif = true,
+                    })
                   '';
                 };
 

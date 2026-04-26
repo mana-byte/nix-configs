@@ -10,6 +10,9 @@
       ...
     }:
     {
+      ### Trusted users
+      nix.settings.trusted-users = [ "root" "mana" ];
+
       ### Basic System Settings
       services.logind.settings.Login = {
         HandleLidSwitchDocked = "ignore";

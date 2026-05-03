@@ -46,6 +46,9 @@
       url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    
+    # minecraft servers
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
   outputs =

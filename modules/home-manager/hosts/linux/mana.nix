@@ -1,9 +1,11 @@
-{ inputs, ... }:
+{ inputs, withSystem, ... }:
 {
-  flake.homeConfigurations.mana = inputs.builders.lib.home-manager.mkConfig {
+  flake.homeConfigurations.mana = inputs.builders.lib.home.mkConfig {
     hostName = "mana";
     nix-index-database = true;
     homeStateVersion = "24.05";
+    withSystem = withSystem "x86_64-linux";
+    manager = inputs.home-manager;
     modules = with inputs.self.homeModules; [
       git_mana-byte
 

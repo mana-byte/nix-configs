@@ -3,14 +3,13 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    flake-parts.url = "github:hercules-ci/flake-parts";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   };
 
   outputs =
     {
       self,
       nixpkgs,
-      flake-parts,
       ...
     }@inputs:
     {
@@ -63,18 +62,19 @@
             ];
           };
 
-        home-manager.mkConfig =
+        home.mkConfig =
           {
             hostName,
-            system ? "x86_64-linux",
             modules,
             stable ? false,
             nix-index-database ? false,
             homeStateVersion,
+            withSystem,
+            manager,
             ...
           }:
-          flake-parts.lib.withSystem "${system}" ( # withSystem is not getting good
-            { pkgs, ... }:
+          withSystem (
+            { pkgs, system, ... }:
             let
               pkgsUsed =
                 if stable then
@@ -84,7 +84,7 @@
               nix-index-databaseModule =
                 if nix-index-database then inputs.nix-index-database.homeModules.nix-index else { };
             in
-            inputs.home-manager.lib.homeManagerConfiguration {
+            manager.lib.homeManagerConfiguration {
               pkgs = pkgsUsed;
               modules = modules ++ [
                 # Base home configuration for all hosts

@@ -39,7 +39,6 @@
         azure-cli
         uv0102
         python3
-        vscode
         terraform
         claude-code
 

@@ -6,6 +6,23 @@
       pkgs,
       ...
     }:
+    let
+      devenv21 = pkgs.devenv.overrideAttrs(old: rec {
+        inherit (old) pname;
+        version = "2.1";
+        src = pkgs.fetchFromGitHub {
+          owner = "cachix";
+          repo = "devenv";
+          tag = "v2.1";
+          hash = "sha256-U7rb9FufadyCBLLsxVY6AJfy6TN24+uwaBBh8JVOP8s=";
+        };
+
+        cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
+          inherit src;
+          hash = "sha256-aONHe6r+lvXC45y6QeJ/tnVSHAYhy2IGuGWCrz+KVWc=";
+        };
+      });
+    in
     {
       nixpkgs.config.allowUnfree = true;
 
@@ -50,6 +67,12 @@
           # linux specific tools
           clipman
           uv
+          # devenv with secret management
+          # devenv
+          devenv21
+          secretspec
+          bitwarden-cli
+          bws
         ];
     };
 }

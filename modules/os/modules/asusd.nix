@@ -15,7 +15,6 @@
       # ASUSD Configuration - Enhanced
       services.asusd = {
         enable = true;
-        enableUserService = true;
         package = pkgs.asusctl;
       };
 

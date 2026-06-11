@@ -38,6 +38,7 @@
       # # Optional
       # cuda
       # vm
+      # cobblemonServer
     ];
   };
 }

@@ -52,6 +52,9 @@
 
       boot.kernelPackages = pkgs.linuxPackages_6_18;
 
+      # shell
+      programs.zsh.enable = true;
+
       boot.kernelParams = [
         "amd_pstate=active" # Better power management
         "amdgpu.sg_display=0" # Address graphics stability

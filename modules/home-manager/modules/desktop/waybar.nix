@@ -107,12 +107,12 @@
           "custom/wallpaper" = {
             format = " ";
             on-click = "wal -i ${config.home.homeDirectory}/.config/me/background/animated/street.jpg &
-                      swww img ${config.home.homeDirectory}/.config/me/background/animated/street.gif --transition-type outer --transition-pos 0.108,0.98 --transition-fps 60 &
+                      awww img ${config.home.homeDirectory}/.config/me/background/animated/street.gif --transition-type outer --transition-pos 0.108,0.98 --transition-fps 60 &
                       ${config.home.homeDirectory}/.config/waybar/scripts/restart.sh";
             # on-click-right = "wal -i ${config.home.homeDirectory}/.config/me/background/animated/yaemiko_I_swear_me_not_pervert.png &
-            #             swww img ${config.home.homeDirectory}/.config/me/background/animated/yaemiko_I_swear_me_not_pervert.gif --transition-type grow --transition-pos 0.108,0.98 --transition-fps 60 &
+            #             awww img ${config.home.homeDirectory}/.config/me/background/animated/yaemiko_I_swear_me_not_pervert.gif --transition-type grow --transition-pos 0.108,0.98 --transition-fps 60 &
             #             ${config.home.homeDirectory}/.config/waybar/scripts/restart.sh";
-            on-click-right = "swww img ${config.home.homeDirectory}/.config/me/background/animated/street.jpg";
+            on-click-right = "awww img ${config.home.homeDirectory}/.config/me/background/animated/street.jpg";
             tooltip-format = "Change Wallpaper (left bright, right dark)";
           };
         }

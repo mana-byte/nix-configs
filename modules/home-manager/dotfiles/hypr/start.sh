@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-swww-daemon &
+awww-daemon &
 nm-applet --indicator &
 waybar &
 dunst &
@@ -12,4 +12,4 @@ kdeconnectd &
 kdeconnect-indicator &
 blueman-applet &
 wal -i ~/.config/me/background/animated/street.jpg &
-swww img  ~/.config/me/background/animated/street.gif &
+awww img  ~/.config/me/background/animated/street.gif &

@@ -23,8 +23,8 @@
             enable = lib.mkForce true;
             enableOffloadCmd = lib.mkForce true;
           };
-          amdgpuBusId = "PCI:65:0:0"; # P16 specific
-          nvidiaBusId = "PCI:64:0:0";
+          amdgpuBusId = "PCI:101@0:0:0"; # P16 specific
+          nvidiaBusId = "PCI:100@0:0:0";
         };
         nvidiaSettings = true;
       };

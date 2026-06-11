@@ -13,7 +13,7 @@
         alias neofetch="fastfetch"
 
         # Drift
-        export DRIFT_TIMEOUT=120
+        export DRIFT_TIMEOUT=300
         eval "$(drift shell-init bash)"
       '';
     };

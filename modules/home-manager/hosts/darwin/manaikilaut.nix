@@ -12,6 +12,7 @@
       fastfetch
       fonts
       zshrc
+      drift
 
       #Desktop
       meAssets

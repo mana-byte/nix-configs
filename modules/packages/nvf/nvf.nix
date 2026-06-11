@@ -393,12 +393,6 @@
                     cmp.enable = true;
                     setupOpts.suggestion.enabled = false;
                   };
-
-                  avante-nvim = {
-                    enable = true;
-                    setupOpts = {
-                    };
-                  };
                 };
 
                 treesitter = {

@@ -362,6 +362,7 @@
                       typescript = [ "prettier" ];
                       javascriptreact = [ "prettier" ];
                       typescriptreact = [ "prettier" ];
+                      terraform = [ "terraform_fmt" ];
                     };
                   };
                 };
@@ -437,6 +438,11 @@
                     enable = true;
                     extensions.markview-nvim.enable = true;
                     format.enable = true;
+                  };
+                  terraform = {
+                    enable = true;
+                    lsp.enable = true;
+                    treesitter.enable = true;
                   };
                   bash.enable = true;
                 };
